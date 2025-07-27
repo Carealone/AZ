@@ -1,365 +1,336 @@
-// Initialize Lucide icons
-lucide.createIcons();
+// AURINZA Website JavaScript
 
 // Product data
 const products = [
-  {
-    id: 1,
-    name: "ครีมหน้าใสสูตรไวท์เทนนิ่ง",
-    category: "ผิวหน้า",
-    price: "฿1,290",
-    rating: 4.8,
-    features: ["เพิ่มความกระจ่างใส", "ลดจุดด่างดำ", "ส่วนผสมธรรมชาติ"],
-    image: "https://images.pexels.com/photos/3785147/pexels-photo-3785147.jpeg?auto=compress&cs=tinysrgb&w=300&h=300"
-  },
-  {
-    id: 2,
-    name: "ครีมกันแดด SPF50+",
-    category: "กันแดด",
-    price: "฿890",
-    rating: 4.9,
-    features: ["ปกป้อง UV", "ไม่เหนียวเหนอะ", "กันน้ำ"],
-    image: "https://images.pexels.com/photos/3762879/pexels-photo-3762879.jpeg?auto=compress&cs=tinysrgb&w=300&h=300"
-  },
-  {
-    id: 3,
-    name: "เซรั่มลดริ้วรอย",
-    category: "ผิวหน้า",
-    price: "฿1,590",
-    rating: 4.7,
-    features: ["ลดเลือนริ้วรอย", "เพิ่มความชุ่มชื้น", "ซึมซาบเร็ว"],
-    image: "https://images.pexels.com/photos/3373736/pexels-photo-3373736.jpeg?auto=compress&cs=tinysrgb&w=300&h=300"
-  },
-  {
-    id: 4,
-    name: "มาสก์หน้าสูตรคอลลาเจน",
-    category: "มาสก์",
-    price: "฿690",
-    rating: 4.6,
-    features: ["บำรุงผิวล้ำลึก", "เพิ่มความยืดหยุ่น", "กลิ่นหอมผ่อนคลาย"],
-    image: "https://images.pexels.com/photos/3764541/pexels-photo-3764541.jpeg?auto=compress&cs=tinysrgb&w=300&h=300"
-  },
-  {
-    id: 5,
-    name: "ครีมบำรุงกลางคืน",
-    category: "ผิวหน้า",
-    price: "฿1,190",
-    rating: 4.8,
-    features: ["ซ่อมแซมผิวขณะนอน", "เพิ่มความชุ่มชื้น", "ลดการอักเสบ"],
-    image: "https://images.pexels.com/photos/3373711/pexels-photo-3373711.jpeg?auto=compress&cs=tinysrgb&w=300&h=300"
-  },
-  {
-    id: 6,
-    name: "โทนเนอร์สูตรอ่อนโยน",
-    category: "ผิวหน้า",
-    price: "฿790",
-    rating: 4.5,
-    features: ["ปรับสมดุลผิว", "ไม่มีแอลกอฮอล์", "เหมาะผิวแพ้ง่าย"],
-    image: "https://images.pexels.com/photos/3373736/pexels-photo-3373736.jpeg?auto=compress&cs=tinysrgb&w=300&h=300"
-  }
+    {
+        id: 1,
+        name: "SET 1 ก้อน",
+        price: "139.-",
+        originalPrice: null,
+        image: "public/images/persimmon-promotion.jpg",
+        description: "Persimmon Deodorant Soap ช่วยลดกลิ่นกาย",
+        badge: null,
+    },
+    {
+        id: 2,
+        name: "Duo Deo Set (2 ก้อน)",
+        price: "259.-",
+        originalPrice: "278.-",
+        image: "public/images/persimmon-promotion.jpg",
+        description: "ซื้อคู่ประหยัดกว่า เหมาะสำหรับครอบครัว",
+        badge: "ประหยัด",
+    },
+    {
+        id: 3,
+        name: "Family Fresh Set (4 ก้อน)",
+        price: "500.-",
+        originalPrice: "556.-",
+        image: "public/images/persimmon-promotion.jpg",
+        description: "ซื้อครอบครัว ประหยัดสุด",
+        badge: "ขายดี",
+    },
+    {
+        id: 4,
+        name: "Gentle Glow Set",
+        price: "500.-",
+        originalPrice: null,
+        image: "public/images/gentle-glow-set.jpg",
+        description: "เซ็ตบำรุงผิว สำโกลว์",
+        badge: "แนะนำ",
+    },
+    {
+        id: 5,
+        name: "Bright Detox Set",
+        price: "595.-",
+        originalPrice: null,
+        image: "public/images/bright-detox-set.jpg",
+        description: "เซ็ตบำรุงผิวใสรัก ออร่า",
+        badge: "ใหม่",
+    },
+    {
+        id: 6,
+        name: "Clear Radiance Cleanser",
+        price: "350.-",
+        originalPrice: null,
+        image: "public/images/clear-radiance.jpg",
+        description: "เปิดประสบการณ์ผิวสำ กับคลีนเซอร์ที่ความสะอาดผิวหน้า",
+        badge: null,
+    },
 ];
 
-// Global variables
-let currentIndex = 0;
-const visibleCount = 4;
+// DOM Elements
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const productsGrid = document.getElementById('products-grid');
 
-// DOM elements
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-const mobileMenu = document.getElementById('mobileMenu');
-const productsGrid = document.getElementById('productsGrid');
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
-const prevBtnMobile = document.getElementById('prevBtnMobile');
-const nextBtnMobile = document.getElementById('nextBtnMobile');
+// Initialize the website
+document.addEventListener('DOMContentLoaded', function() {
+    initializeMobileMenu();
+    loadProducts();
+    initializeScrollAnimations();
+    initializeSmoothScrolling();
+    initializeContactButtons();
+    initializeStatsCounter();
+});
 
 // Mobile menu functionality
-function toggleMobileMenu() {
-  mobileMenu.classList.toggle('active');
+function initializeMobileMenu() {
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    }
 }
 
-// Product carousel functionality
-function getVisibleProducts() {
-  const result = [];
-  for (let i = 0; i < visibleCount; i++) {
-    result.push(products[(currentIndex + i) % products.length]);
-  }
-  return result;
-}
+// Load products into the grid
+function loadProducts() {
+    if (!productsGrid) return;
 
-function nextProduct() {
-  currentIndex = (currentIndex + 1) % products.length;
-  renderProducts();
-}
-
-function prevProduct() {
-  currentIndex = (currentIndex - 1 + products.length) % products.length;
-  renderProducts();
-}
-
-// Create product card HTML
-function createProductCard(product) {
-  const featuresHTML = product.features.map(feature => 
-    `<span class="product-feature">${feature}</span>`
-  ).join('');
-
-  return `
-    <div class="product-card">
-      <div class="product-image-container">
-        <img 
-          src="${product.image}" 
-          alt="${product.name}" 
-          class="product-image"
-        />
-        <span class="product-category">${product.category}</span>
-      </div>
-      
-      <div class="product-content">
-        <h3 class="product-name">${product.name}</h3>
-        
-        <div class="product-rating">
-          <i data-lucide="star"></i>
-          <span>${product.rating}</span>
+    productsGrid.innerHTML = products.map((product, index) => `
+        <div class="product-card loading" style="animation-delay: ${index * 0.1}s">
+            <div class="product-image h-64 overflow-hidden">
+                <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover">
+                ${product.badge ? `<div class="badge">${product.badge}</div>` : ''}
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">${product.name}</h3>
+                <p class="text-gray-600 text-sm mb-4 line-clamp-2">${product.description}</p>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <span class="text-2xl font-bold text-blue-600">฿${product.price}</span>
+                        ${product.originalPrice ? `<span class="text-sm text-gray-500 line-through">฿${product.originalPrice}</span>` : ''}
+                    </div>
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-300 text-sm">
+                        สั่งซื้อ
+                    </button>
+                </div>
+            </div>
         </div>
-        
-        <div class="product-features">
-          ${featuresHTML}
-        </div>
-        
-        <div class="product-footer">
-          <span class="product-price">${product.price}</span>
-          <button class="add-to-cart-btn" onclick="addToCart(${product.id})">
-            เพิ่มลงตะกร้า
-          </button>
-        </div>
-      </div>
-    </div>
-  `;
-}
+    `).join('');
 
-// Render products
-function renderProducts() {
-  const visibleProducts = getVisibleProducts();
-  const productsHTML = visibleProducts.map(product => createProductCard(product)).join('');
-  productsGrid.innerHTML = productsHTML;
-  
-  // Re-initialize Lucide icons for new elements
-  lucide.createIcons();
-}
-
-// Add to cart functionality
-function addToCart(productId) {
-  const product = products.find(p => p.id === productId);
-  if (product) {
-    // You can implement cart functionality here
-    console.log(`Added to cart: ${product.name}`);
-    
-    // Show a simple notification
-    showNotification(`เพิ่ม ${product.name} ลงตะกร้าแล้ว`);
-  }
-}
-
-// Show notification
-function showNotification(message) {
-  // Create notification element
-  const notification = document.createElement('div');
-  notification.className = 'notification';
-  notification.textContent = message;
-  
-  // Add styles
-  notification.style.cssText = `
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: var(--primary);
-    color: white;
-    padding: 1rem 1.5rem;
-    border-radius: 0.5rem;
-    box-shadow: var(--shadow-medium);
-    z-index: 1000;
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-    font-weight: 500;
-  `;
-  
-  document.body.appendChild(notification);
-  
-  // Animate in
-  setTimeout(() => {
-    notification.style.transform = 'translateX(0)';
-  }, 100);
-  
-  // Remove after 3 seconds
-  setTimeout(() => {
-    notification.style.transform = 'translateX(100%)';
+    // Add loaded class after a short delay for animation
     setTimeout(() => {
-      document.body.removeChild(notification);
-    }, 300);
-  }, 3000);
+        const productCards = productsGrid.querySelectorAll('.product-card');
+        productCards.forEach(card => {
+            card.classList.add('loaded');
+        });
+    }, 100);
+}
+
+// Scroll animations
+function initializeScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-fade-in-up');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observe elements for animation
+    const animateElements = document.querySelectorAll('.animate-fade-in-up');
+    animateElements.forEach(el => {
+        observer.observe(el);
+    });
 }
 
 // Smooth scrolling for navigation links
-function initSmoothScrolling() {
-  const navLinks = document.querySelectorAll('a[href^="#"]');
-  
-  navLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      
-      const targetId = this.getAttribute('href');
-      const targetElement = document.querySelector(targetId);
-      
-      if (targetElement) {
-        const headerHeight = document.querySelector('.header').offsetHeight;
-        const targetPosition = targetElement.offsetTop - headerHeight;
-        
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
+function initializeSmoothScrolling() {
+    const navLinks = document.querySelectorAll('a[href^="#"]');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+                const offsetTop = targetSection.offsetTop - 80; // Account for fixed navbar
+                
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
         });
+    });
+}
+
+// Contact buttons functionality
+function initializeContactButtons() {
+    // Phone button
+    const phoneBtn = document.querySelector('button:contains("โทรเลย")');
+    if (phoneBtn) {
+        phoneBtn.addEventListener('click', function() {
+            window.open('tel:0986164264', '_self');
+        });
+    }
+
+    // LINE button
+    const lineBtn = document.querySelector('button:contains("LINE Chat")');
+    if (lineBtn) {
+        lineBtn.addEventListener('click', function() {
+            window.open('https://line.me/ti/p/@acaurinza', '_blank');
+        });
+    }
+
+    // Shop buttons
+    const shopButtons = document.querySelectorAll('button:contains("ช้อปเลย"), button:contains("สั่งซื้อ")');
+    shopButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // You can add your shopping cart logic here
+            alert('กำลังพัฒนา ระบบสั่งซื้อออนไลน์');
+        });
+    });
+}
+
+// Stats counter animation
+function initializeStatsCounter() {
+    const stats = document.querySelectorAll('.stat-number');
+    
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = entry.target;
+                const finalValue = target.textContent;
+                const isPercentage = finalValue.includes('%');
+                const numericValue = parseInt(finalValue.replace(/[^\d]/g, ''));
+                
+                animateCounter(target, 0, numericValue, isPercentage);
+                statsObserver.unobserve(target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    stats.forEach(stat => {
+        statsObserver.observe(stat);
+    });
+}
+
+// Counter animation function
+function animateCounter(element, start, end, isPercentage) {
+    const duration = 2000;
+    const startTime = performance.now();
+    
+    function updateCounter(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
         
-        // Close mobile menu if open
-        if (mobileMenu.classList.contains('active')) {
-          mobileMenu.classList.remove('active');
+        const current = Math.floor(start + (end - start) * progress);
+        element.textContent = isPercentage ? `${current}%` : current;
+        
+        if (progress < 1) {
+            requestAnimationFrame(updateCounter);
         }
-      }
-    });
-  });
+    }
+    
+    requestAnimationFrame(updateCounter);
 }
 
-// Header scroll effect
-function initHeaderScrollEffect() {
-  let lastScrollTop = 0;
-  
-  window.addEventListener('scroll', function() {
-    const header = document.querySelector('.header');
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
-    if (scrollTop > lastScrollTop && scrollTop > 100) {
-      // Scrolling down
-      header.style.transform = 'translateY(-100%)';
+// Navbar scroll effect
+window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('nav');
+    if (window.scrollY > 100) {
+        navbar.classList.add('bg-white/95', 'shadow-md');
     } else {
-      // Scrolling up
-      header.style.transform = 'translateY(0)';
+        navbar.classList.remove('bg-white/95', 'shadow-md');
     }
-    
-    lastScrollTop = scrollTop;
-  });
-}
-
-// Initialize everything when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-  // Initialize mobile menu
-  if (mobileMenuBtn) {
-    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
-  }
-  
-  // Initialize product carousel
-  if (prevBtn) prevBtn.addEventListener('click', prevProduct);
-  if (nextBtn) nextBtn.addEventListener('click', nextProduct);
-  if (prevBtnMobile) prevBtnMobile.addEventListener('click', prevProduct);
-  if (nextBtnMobile) nextBtnMobile.addEventListener('click', nextProduct);
-  
-  // Render initial products
-  renderProducts();
-  
-  // Initialize smooth scrolling
-  initSmoothScrolling();
-  
-  // Initialize header scroll effect
-  initHeaderScrollEffect();
-  
-  // Close mobile menu when clicking outside
-  document.addEventListener('click', function(e) {
-    if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
-      mobileMenu.classList.remove('active');
-    }
-  });
-  
-  // Close mobile menu on window resize
-  window.addEventListener('resize', function() {
-    if (window.innerWidth >= 768) {
-      mobileMenu.classList.remove('active');
-    }
-  });
 });
 
-// Add some additional interactive features
-
-// Hero button click handler
-document.addEventListener('DOMContentLoaded', function() {
-  const heroButton = document.querySelector('.hero .btn');
-  if (heroButton) {
-    heroButton.addEventListener('click', function() {
-      const productsSection = document.querySelector('#products');
-      if (productsSection) {
-        const headerHeight = document.querySelector('.header').offsetHeight;
-        const targetPosition = productsSection.offsetTop - headerHeight;
-        
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
+// Add loading animation to images
+function preloadImages() {
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+        img.addEventListener('load', function() {
+            this.classList.add('loaded');
         });
-      }
     });
-  }
-});
-
-// Add loading animation for images
-function initImageLoading() {
-  const images = document.querySelectorAll('img');
-  
-  images.forEach(img => {
-    img.addEventListener('load', function() {
-      this.style.opacity = '1';
-    });
-    
-    img.addEventListener('error', function() {
-      this.style.opacity = '0.5';
-      this.style.filter = 'grayscale(100%)';
-    });
-    
-    // Set initial opacity
-    img.style.opacity = '0';
-    img.style.transition = 'opacity 0.3s ease';
-  });
 }
 
-// Initialize image loading
-document.addEventListener('DOMContentLoaded', initImageLoading);
+// Initialize image preloading
+preloadImages();
 
-// Add keyboard navigation for product carousel
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'ArrowLeft') {
-    prevProduct();
-  } else if (e.key === 'ArrowRight') {
-    nextProduct();
-  }
-});
-
-// Add touch/swipe support for mobile
-let touchStartX = 0;
-let touchEndX = 0;
-
-document.addEventListener('touchstart', function(e) {
-  touchStartX = e.changedTouches[0].screenX;
-});
-
-document.addEventListener('touchend', function(e) {
-  touchEndX = e.changedTouches[0].screenX;
-  handleSwipe();
-});
-
-function handleSwipe() {
-  const swipeThreshold = 50;
-  const diff = touchStartX - touchEndX;
-  
-  if (Math.abs(diff) > swipeThreshold) {
-    if (diff > 0) {
-      // Swipe left - next product
-      nextProduct();
-    } else {
-      // Swipe right - previous product
-      prevProduct();
+// Add hover effects to product cards
+document.addEventListener('mouseover', function(e) {
+    if (e.target.closest('.product-card')) {
+        const card = e.target.closest('.product-card');
+        card.classList.add('card-hover');
     }
-  }
-} 
+});
+
+document.addEventListener('mouseout', function(e) {
+    if (e.target.closest('.product-card')) {
+        const card = e.target.closest('.product-card');
+        card.classList.remove('card-hover');
+    }
+});
+
+// Form validation (if you add forms later)
+function validateForm(form) {
+    const inputs = form.querySelectorAll('input[required], textarea[required]');
+    let isValid = true;
+    
+    inputs.forEach(input => {
+        if (!input.value.trim()) {
+            input.classList.add('border-red-500');
+            isValid = false;
+        } else {
+            input.classList.remove('border-red-500');
+        }
+    });
+    
+    return isValid;
+}
+
+// Utility function to check if element contains text
+Element.prototype.contains = function(text) {
+    return this.textContent.includes(text);
+};
+
+// Add this to the Element prototype if it doesn't exist
+if (!Element.prototype.contains) {
+    Element.prototype.contains = function(text) {
+        return this.textContent.includes(text);
+    };
+}
+
+// Lazy loading for images
+function initializeLazyLoading() {
+    const images = document.querySelectorAll('img[data-src]');
+    
+    const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove('lazy');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+    
+    images.forEach(img => {
+        imageObserver.observe(img);
+    });
+}
+
+// Initialize lazy loading
+initializeLazyLoading();
+
+// Add some interactive features
+console.log('AURINZA Website loaded successfully! 🎉'); 
