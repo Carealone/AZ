@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ac Aurinza - ครีมบำรุงผิวพรีเมียม</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">Ac Aurinza</h1>
+                
+                <nav class="nav-desktop">
+                    <a href="#home" class="nav-link">หน้าแรก</a>
+                    <a href="#products" class="nav-link">ผลิตภัณฑ์</a>
+                    <a href="#services" class="nav-link">บริการ</a>
+                    <a href="#about" class="nav-link">เกี่ยวกับเรา</a>
+                    <a href="#contact" class="nav-link">ติดต่อเรา</a>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="icon-btn" aria-label="User">
+                        <i data-lucide="user"></i>
+                    </button>
+                    <button class="icon-btn" aria-label="Shopping Cart">
+                        <i data-lucide="shopping-cart"></i>
+                    </button>
+                    <button class="icon-btn mobile-menu-btn" aria-label="Menu">
+                        <i data-lucide="menu"></i>
+                    </button>
+                </div>
+            </div>
+
+            <nav class="nav-mobile" id="mobileMenu">
+                <a href="#home" class="nav-link">หน้าแรก</a>
+                <a href="#products" class="nav-link">ผลิตภัณฑ์</a>
+                <a href="#services" class="nav-link">บริการ</a>
+                <a href="#about" class="nav-link">เกี่ยวกับเรา</a>
+                <a href="#contact" class="nav-link">ติดต่อเรา</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background"></div>
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <div class="hero-card">
+                <h1 class="hero-title">
+                    ครีมบำรุงผิว<br>
+                    <span class="hero-accent">พรีเมียม</span>
+                </h1>
+                <p class="hero-description">
+                    ผลิตภัณฑ์ดูแลผิวคุณภาพสูงสำหรับผิวหน้าและผิวกาย 
+                    สร้างผิวสวยกระจ่างใสด้วยส่วนผสมจากธรรมชาติ
+                </p>
+                <button class="btn btn-primary btn-large">
+                    สำรวจผลิตภัณฑ์
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section id="products" class="products-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-title-group">
+                    <h2 class="section-title">ผลิตภัณฑ์เด่น</h2>
+                    <p class="section-subtitle">
+                        ค้นพบครีมบำรุงผิวยอดนิยมของเราสำหรับทุกสภาพผิว
+                    </p>
+                </div>
+                
+                <div class="product-controls desktop-only">
+                    <button class="control-btn" id="prevBtn" aria-label="Previous">
+                        <i data-lucide="chevron-left"></i>
+                    </button>
+                    <button class="control-btn" id="nextBtn" aria-label="Next">
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be dynamically inserted here -->
+            </div>
+
+            <div class="product-controls mobile-only">
+                <button class="control-btn" id="prevBtnMobile" aria-label="Previous">
+                    <i data-lucide="chevron-left"></i>
+                </button>
+                <button class="control-btn" id="nextBtnMobile" aria-label="Next">
+                    <i data-lucide="chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                
+                <!-- Brand Section -->
+                <div class="footer-section">
+                    <h3 class="footer-title">Ac Aurinza</h3>
+                    <p class="footer-description">
+                        ร้านครีมบำรุงผิวที่คุณไว้วางใจ ด้วยผลิตภัณฑ์คุณภาพสูงและการให้คำปรึกษา
+                        จากผู้เชี่ยวชาญเพื่อผิวสวยสมบูรณ์แบบ
+                    </p>
+                    <div class="social-links">
+                        <a href="https://web.facebook.com/Ac.aurinza" class="social-link" target="_blank" rel="noopener noreferrer">
+                            <i data-lucide="facebook"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i data-lucide="twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i data-lucide="instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Products Section -->
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">ผลิตภัณฑ์</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">ครีมหน้าใส</a></li>
+                        <li><a href="#" class="footer-link">ครีมกันแดด</a></li>
+                        <li><a href="#" class="footer-link">ครีมลดริ้วรอย</a></li>
+                        <li><a href="#" class="footer-link">เซรั่มบำรุงผิว</a></li>
+                        <li><a href="#" class="footer-link">มาสก์หน้า</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services Section -->
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">บริการ</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">ให้คำปรึกษาผิว</a></li>
+                        <li><a href="#" class="footer-link">จัดส่งฟรี</a></li>
+                        <li><a href="#" class="footer-link">ทดลองใช้ผลิตภัณฑ์</a></li>
+                        <li><a href="#" class="footer-link">สนับสนุนลูกค้า</a></li>
+                        <li><a href="#" class="footer-link">คืนสินค้า</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">ติดต่อเรา</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i data-lucide="phone"></i>
+                            <span>+66 (2) 123-4567</span>
+                        </div>
+                        <div class="contact-item">
+                            <i data-lucide="mail"></i>
+                            <span>info@acaurinza.co.th</span>
+                        </div>
+                        <div class="contact-item">
+                            <i data-lucide="map-pin"></i>
+                            <span>123 ถนนสุขุมวิท, กรุงเทพฯ 10110</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+            
+            <div class="footer-bottom">
+                <p class="copyright">
+                    © 2568 Ac Aurinza สงวนลิขสิทธิ์
+                </p>
+                <div class="footer-legal">
+                    <a href="#" class="legal-link">นโยบายความเป็นส่วนตัว</a>
+                    <a href="#" class="legal-link">ข้อกำหนดการใช้งาน</a>
+                    <a href="#" class="legal-link">นโยบายคุกกี้</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
